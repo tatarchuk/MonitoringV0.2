@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Temperature and Humidity Monitoring</title>        
+    <link rel="stylesheet" type="text/css" href="style.css" />  
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
+    <script src="script.js"></script>
+</head>
+<body>
+    <video id="video" width="100%" height="auto" autoplay="autoplay" loop="loop" preload="auto">
+		<source src="resources/background.mp4"></source>
+		<source src="resources/background.webm" type="video/webm"></source>
+		Your browser doesn't support audio!
+    </video>
+    <audio autoplay loop id="sound">
+	  <source src="resources/audio.ogg" type="audio/ogg"> 
+	  <source src="resources/audio.mp3" type="audio/mp3"> 
+	  Your browser doesn't support audio!
+	  
+    </audio>   
+	
+    <div id="wrapper">
+	  
+	  
+		<h2>Temperature: <h2>
+		<h1 id="tValue">0.0&deg;C </h1>
+		<h2>   Humidity: <h2>
+		<h1 id="hValue">0.0%</h1>	      
+	  
+	  
+	  <script>
+			$(document).ready(setInterval("loadData()", 3000));
+			
+			var loadData = function(){
+				$.ajax({
+					type:"POST",
+					url:"api.php"
+				}).done(function(data){
+					console.log(data);
+					var mr = JSON.parse(data);
+					$("#tValue").text(mr.temperature + '\xB0' + "C ");
+					$("#hValue").text(mr.humidity + "%");					
+				});
+			}
+			
+		</script>
+	  
+	  
+    </div>
+	<div id="control">
+	      <img src="resources/sound.png" width="96px" height="96px" id="soundIcon" />
+	</div>
+</body>
+</html>

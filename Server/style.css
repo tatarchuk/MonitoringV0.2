@@ -1,0 +1,98 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+video {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  z-index: -100;
+  background-size: cover;
+}
+
+@font-face {
+    font-family: Roboto Slab;     
+    src: local(RobotoSlab), url(fonts/RobotoSlab-Regular.ttf); 
+   }
+
+#wrapper {
+  width: 55%; 
+  height: 40%;
+  min-width: 200px;
+  max-width: 1200px;
+  padding: 5px;
+  overflow: auto;
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0; 
+  text-shadow: 1px 1px 2px black, 0 0 1em blue;
+}
+
+#wrapper h1 {
+  font-family: 'Roboto Slab';
+  font-weight: bold;  
+  font-style: italic; 
+  text-align: center;
+  color: #ffffff;
+  font-size: 58px; 
+  opacity: 0.9;
+  display: inline;
+}
+
+#wrapper h2 {
+  font-family: 'Roboto Slab';
+  font-size: 32px;
+  color: #ffffff;
+  text-align: center;
+  display: inline;
+}
+
+@media screen and (max-width: 960px) {
+    #wrapper h1 {
+        font-size: 36px;
+    }
+    #wrapper p{
+	font-size: 24px;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    #wrapper h1 {
+        font-size: 18px;
+    }
+    #wrapper p{
+	font-size: 12px;
+    }
+}
+
+@media screen and (max-height: 580px) {
+    #wrapper h1 {
+        font-size: 36px;
+    }
+    #wrapper p{
+	font-size: 24px;
+    }
+}
+
+@media screen and (max-height: 480px) {
+    #wrapper h1 {
+        font-size: 18px;
+    }
+    #wrapper p{
+	font-size: 12px;
+    }
+}
+
+#control {
+    position: absolute;
+    top: 25px;
+    right: 25px;
+    opacity: 0.8;
+    cursor: pointer;
+}
+  
